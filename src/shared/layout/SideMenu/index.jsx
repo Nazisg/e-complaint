@@ -5,7 +5,7 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined
 } from '@ant-design/icons';
-import { Button, Layout, Menu } from 'antd';
+import { Button, Image, Layout, Menu } from 'antd';
 import React, { useState } from 'react';
 import logo from '../../../shared/media/imgs/logo-title.png';
 import styles from './SideMenu.module.scss';
@@ -17,7 +17,7 @@ export default function SideMenu() {
   return (
     <Sider trigger={null} theme="light" collapsible collapsed={collapsed} className={styles.sidemenu}>
       <div className="demo-logo-vertical" />
-      {/* <img src={logo} alt="logo" className={styles.logo} /> */}
+      {/* <Image preview={false} src={logo} alt="logo" className={styles.logo} /> */}
       <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}

@@ -1,0 +1,24 @@
+.ant-layout-content {
+  background-color: transparent !important;
+  margin: 0 !important;
+}
+thead {
+  .ant-table-cell {
+    background-color: #3c6cb4 !important;
+    color: #fff !important;
+  }
+  .ant-table-column-sorter {
+    color: #fff !important;
+  }
+}
+// sidemenu
+.ant-layout-sider {
+  background-color: #f5f5f5 !important;
+  .ant-menu {
+    background-color: transparent;
+    .ant-menu-item{
+        color: #3c6cb4!important;
+        background-color: #fff!important;
+    }
+  }
+}
