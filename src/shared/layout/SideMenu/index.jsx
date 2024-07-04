@@ -7,8 +7,9 @@ import {
 } from '@ant-design/icons';
 import { Button, Image, Layout, Menu } from 'antd';
 import React, { useState } from 'react';
-import logo from '../../../shared/media/imgs/logo-title.png';
+import logo from '@/shared/media/imgs/logo-title.png';
 import styles from './SideMenu.module.scss';
+import { Link } from 'react-router-dom';
 const { Sider } = Layout;
 
 export default function SideMenu() {
@@ -34,13 +35,15 @@ export default function SideMenu() {
         items={[
           {
             key: '1',
-            icon: <PlusOutlined />,
-            label: 'Yeni şikayət yarat',
+            icon: <UnorderedListOutlined />,
+            label: <Link to="/">Şikayətlər</Link>,
+            className:"activeLink",
           },
           {
             key: '2',
-            icon: <UnorderedListOutlined />,
-            label: 'Şikayətlər',
+            icon: <PlusOutlined />,
+            label: <Link to="/create-complaint">Yeni şikayət yarat</Link>,
+            className:"activelink",
           },
           {
             key: '3',

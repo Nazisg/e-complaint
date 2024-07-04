@@ -4,7 +4,7 @@ import {
 import { Avatar, Flex, Image, Layout, Typography } from 'antd';
 import React from 'react';
 import styles from './Header.module.scss'
-import logo from '../../media/imgs/logo-title.png'
+import logo from '@/shared/media/imgs/logo-title.png'
 const { Header } = Layout;
 const { Title } = Typography;
 

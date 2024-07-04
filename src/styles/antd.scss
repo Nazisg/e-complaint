@@ -1,7 +1,32 @@
-.ant-layout-content {
-  background-color: transparent !important;
-  margin: 0 !important;
+.ant-layout {
+  height: 100%;
+
+  // sidemenu
+  .ant-layout-sider {
+    background-color: #f5f5f5 !important;
+    .ant-menu {
+      background-color: transparent;
+      .ant-menu-item {
+        color: #3c6cb4 !important;
+        background-color: #fff !important;
+      }
+      .ant-menu-item-selected {
+        background-color: #3c6cb4 !important;
+        color: #fff !important;
+      }
+    }
+  }
+
+  //content
+  .ant-layout-content {
+    background-color: transparent !important;
+    margin: 0 !important;
+    height: auto!important;
+    padding: 24px;
+  }
 }
+
+//table
 thead {
   .ant-table-cell {
     background-color: #3c6cb4 !important;
@@ -11,14 +36,8 @@ thead {
     color: #fff !important;
   }
 }
-// sidemenu
-.ant-layout-sider {
-  background-color: #f5f5f5 !important;
-  .ant-menu {
-    background-color: transparent;
-    .ant-menu-item{
-        color: #3c6cb4!important;
-        background-color: #fff!important;
-    }
-  }
+
+//form
+.ant-upload.ant-upload-select {
+  height: 22rem !important;
 }

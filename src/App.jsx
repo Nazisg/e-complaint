@@ -1,26 +1,30 @@
+import Complaint from '@/pages/Complaint';
+import CreateComplaint from '@/pages/CreateComplaint';
+import Headerr from '@/shared/layout/Header';
+import SideMenu from '@/shared/layout/SideMenu';
 import { Layout } from 'antd';
 import React from 'react';
-import Complaint from './pages/Complaint';
-import Headerr from './shared/layout/Header';
-import SideMenu from './shared/layout/SideMenu';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
 const { Content } = Layout;
 
 const App = () => {
   return (
-    <Layout>
-      <SideMenu />
+    <Router>
       <Layout>
-        <Headerr />
-        <Content
-          style={{
-            padding: 24,
-            minHeight: 280,
-          }}
-        >
-          <Complaint />
-        </Content>
+        <SideMenu />
+        <Layout>
+          <Headerr />
+          <Content >
+            <Routes>
+              <Route path="/" element={<Complaint />} />
+              <Route path="/create-complaint" element={<CreateComplaint />} />
+            </Routes>
+          </Content>
+        </Layout>
       </Layout>
-    </Layout>
+    </Router>
+
   );
 };
 export default App;

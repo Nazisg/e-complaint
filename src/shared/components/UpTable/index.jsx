@@ -6,7 +6,7 @@ import {
 } from '@ant-design/icons'
 import { Flex, Input, Space } from 'antd'
 import React from 'react'
-import CustomButton from '../Button'
+import CustomButton from '@/shared/components/Button'
 import styles from './UpTable.module.scss'
 
 export default function UpTable() {
