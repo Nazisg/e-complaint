@@ -10,29 +10,41 @@
   }
   .form {
     .personalBlank {
-        padding: 2rem 2rem 0 2rem;
-        background-color: #fff;
-        border-radius: 0 0 10px 10px;
+      padding: 2rem 2rem 0 2rem;
+      background-color: #fff;
+      border-radius: 0 0 10px 10px;
       div {
         flex: 1;
       }
     }
-    .textarea{
-        resize: none;
-        height: 14.2rem;
+    .textarea {
+      resize: none;
+      height: 14.2rem;
     }
-    .upload{
-        button{
-            border: 0;
-            background: none;
-            padding: 2rem;
-        }
+    .upload {
+      button {
+        border: 0;
+        background: none;
+        padding: 2rem;
+      }
     }
-    .personalInfo{
-        margin-top:1.5rem;
-        padding: 2rem 2rem 0 2rem;
-        background-color: #fff;
-        border-radius: 10px;
+    .personalInfo {
+      margin: 1.5rem 0;
+      padding: 2rem 2rem 0 2rem;
+      background-color: #fff;
+      border-radius: 10px;
+    }
+    .line {
+      height: 48px;
+      width: 1px;
+      background-color: #dee2e6;
+      transform: rotate(30deg);
+    }
+    .btn{
+      background: #3c6cb4!important;
+      padding: 0.5rem 5rem;
+      margin-bottom: 2rem;
+      font-size: 18px;
     }
   }
 }

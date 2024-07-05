@@ -2,33 +2,42 @@ import {
   PlusOutlined,
   QuestionCircleOutlined,
   UnorderedListOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined
+  LeftOutlined,
+  RightOutlined
 } from '@ant-design/icons';
-import { Button, Image, Layout, Menu } from 'antd';
+import { Button, Layout, Menu, Image, Flex } from 'antd';
 import React, { useState } from 'react';
 import logo from '@/shared/media/imgs/logo-title.png';
 import styles from './SideMenu.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 const { Sider } = Layout;
+import CustomModal from '../../components/Modal';
 
 export default function SideMenu() {
   const [collapsed, setCollapsed] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const location = useLocation();
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
 
   return (
     <Sider trigger={null} theme="light" collapsible collapsed={collapsed} className={styles.sidemenu}>
-      <div className="demo-logo-vertical" />
-      {/* <Image preview={false} src={logo} alt="logo" className={styles.logo} /> */}
-      <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: '16px',
-              width: 64,
-              height: 64,
-            }}
-          />
+      <Flex justify='center' align='center' className={styles.logoContainer}>
+        {!collapsed && <Image preview={false} width={140} src={logo} alt="logo" />}
+        <Button
+          type="text"
+          icon={collapsed ? <RightOutlined /> : <LeftOutlined />}
+          onClick={() => setCollapsed(!collapsed)}
+          style={{
+            fontSize: '14px',
+            width: 50,
+            height: 50,
+            margin: '14px 0',
+          }}
+        />
+      </Flex>
       <Menu
         mode="inline"
         defaultSelectedKeys={['1']}
@@ -37,20 +46,25 @@ export default function SideMenu() {
             key: '1',
             icon: <UnorderedListOutlined />,
             label: <Link to="/">Şikayətlər</Link>,
-            className:"activeLink",
+            className: location.pathname === '/' ? styles.activeLink : styles.link,
           },
           {
             key: '2',
             icon: <PlusOutlined />,
             label: <Link to="/create-complaint">Yeni şikayət yarat</Link>,
-            className:"activelink",
+            className: location.pathname === '/create-complaint' ? styles.activeLink : styles.link,
           },
           {
             key: '3',
             icon: <QuestionCircleOutlined />,
             label: 'İstehlakçı təcrübəsi sorğusu',
+            className:styles.link,
+            onClick:showModal
           },
         ]}
       />
-    </Sider>)
+
+      <CustomModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+    </Sider>
+  );
 }

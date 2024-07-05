@@ -1,19 +1,13 @@
 .ant-layout {
   height: 100%;
+  overflow: auto;
 
   // sidemenu
   .ant-layout-sider {
+
     background-color: #f5f5f5 !important;
     .ant-menu {
       background-color: transparent;
-      .ant-menu-item {
-        color: #3c6cb4 !important;
-        background-color: #fff !important;
-      }
-      .ant-menu-item-selected {
-        background-color: #3c6cb4 !important;
-        color: #fff !important;
-      }
     }
   }
 
@@ -21,7 +15,6 @@
   .ant-layout-content {
     background-color: transparent !important;
     margin: 0 !important;
-    height: auto!important;
     padding: 24px;
   }
 }

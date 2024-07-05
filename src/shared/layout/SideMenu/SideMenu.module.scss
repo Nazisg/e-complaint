@@ -2,11 +2,17 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: #d0d2d6;  
   background-image: linear-gradient(315deg, #cccccc 0%, #f5f7fa 74%);
-  .logo {
-    width: 200px;
+ ul{
+    li{
+      margin-block: 7px!important;
+    }
   }
 }
 .activeLink{
-  background-color: red!important;
-  color: red!important;
+    background-color: #3c6cb4 !important;
+    color: #fff !important;
+}
+.link{
+  color: #3c6cb4 !important;
+  background-color: #fff !important;
 }

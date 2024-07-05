@@ -1,7 +1,8 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { Col, Flex, Form, Input, Row, Select, Typography, Upload } from 'antd';
+import { Button, Col, Flex, Form, Input, InputNumber, Row, Select, Typography, Upload } from 'antd';
 import React from 'react';
 import styles from './CreateComplaint.module.scss';
+import CustomButton from '../../shared/components/Button';
 
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -28,14 +29,19 @@ export default function CreateComplaint() {
     };
 
     const prefixSelector = (
-        <Form.Item name="prefix" noStyle>
-            <Select
+        <Form.Item size='large' name="prefix" noStyle>
+            <Select defaultValue='50'
                 style={{
                     width: 70,
                 }}
             >
-                <Option value="86">+86</Option>
-                <Option value="87">+87</Option>
+                <Option value="50">050</Option>
+                <Option value="51">051</Option>
+                <Option value="55">055</Option>
+                <Option value="70">070</Option>
+                <Option value="77">077</Option>
+                <Option value="10">010</Option>
+                <Option value="99">099</Option>
             </Select>
         </Form.Item>
     );
@@ -58,6 +64,7 @@ export default function CreateComplaint() {
                                 rules={[
                                     {
                                         required: true,
+                                        message: '',
                                     },
                                 ]}
                             >
@@ -74,6 +81,7 @@ export default function CreateComplaint() {
                                 rules={[
                                     {
                                         required: true,
+                                        message: '',
                                     },
                                 ]}
                             >
@@ -90,6 +98,7 @@ export default function CreateComplaint() {
                                 rules={[
                                     {
                                         required: true,
+                                        message: '',
                                     },
                                 ]}
                             >
@@ -106,6 +115,7 @@ export default function CreateComplaint() {
                                 rules={[
                                     {
                                         required: true,
+                                        message: '',
                                     },
                                 ]}
                             >
@@ -124,6 +134,7 @@ export default function CreateComplaint() {
                                 rules={[
                                     {
                                         required: true,
+                                        message: '',
                                     },
                                 ]}
                             >
@@ -132,11 +143,12 @@ export default function CreateComplaint() {
                                     placeholder="Abunəçi kodunu daxil edin" />
                             </Form.Item>
                             <Form.Item
-                                label="Şikayət mətni (Qalan simvol sayı: 1000)"
+                                label="Şikayət mətni"
                                 name="text"
                                 rules={[
                                     {
                                         required: true,
+                                        message: '',
                                     },
                                 ]}>
                                 <TextArea className={styles.textarea} rows={4} onResize="false" placeholder='Maksimum 1000 simvol' />
@@ -171,6 +183,7 @@ export default function CreateComplaint() {
                                     rules={[
                                         {
                                             required: true,
+                                            message: '',
                                         },
                                     ]}
                                 >
@@ -187,6 +200,7 @@ export default function CreateComplaint() {
                                 rules={[
                                     {
                                         required: true,
+                                        message: '',
                                     },
                                 ]}
                             >
@@ -203,6 +217,7 @@ export default function CreateComplaint() {
                                 rules={[
                                     {
                                         required: true,
+                                        message: '',
                                     },
                                 ]}
                             >
@@ -229,27 +244,49 @@ export default function CreateComplaint() {
                         </Row>
                         <Row gutter={[16, 16]}>
                             <Col span={6}>
+                                <Flex gap="large" align='center'>
+                                    <Form.Item
+                                        label="Bina / Ev"
+                                        name="house"
+                                        rules={[
+                                            {
+                                                required: true,
+                                                message: '',
+                                            },
+                                        ]}
+                                    >
+                                        <InputNumber size='large' min={1} max={100} />
+                                    </Form.Item>
+                                    <div className={styles.line}></div>
+                                    <Form.Item
+                                        label="Mənzil"
+                                        name="apartment"
+                                    >
+                                        <InputNumber size='large' min={1} max={100} />
+                                    </Form.Item>
+                                </Flex>
+                            </Col>
+                            <Col span={6}>
                                 <Form.Item
                                     name="phone"
                                     label="Phone Number"
                                     rules={[
                                         {
                                             required: true,
-                                            message: 'Please input your phone number!',
+                                            message: '',
                                         },
                                     ]}
                                 >
                                     <Input
                                         addonBefore={prefixSelector}
-                                        style={{
-                                            width: '100%',
-                                        }}
+                                        size='large'
+
                                     />
                                 </Form.Item></Col>
                             <Col span={6}>
                                 <Form.Item
                                     label="Stasionar telefon"
-                                    name="phone"
+                                    name="stasionar-phone"
                                 >
                                     <Input
                                         size='large'
@@ -257,23 +294,26 @@ export default function CreateComplaint() {
                                 </Form.Item>
                             </Col>
                             <Col span={6}>
-                            <Form.Item
-                                label="E-poçt"
-                                name="email"
-                                rules={[
-                                    {
-                                        required: true,
-                                    },
-                                ]}
-                            >
-                                <Input
-                                    size='large'
-                                    placeholder="example@gmail.com" />
-                            </Form.Item>
+                                <Form.Item
+                                    label="E-poçt"
+                                    name="email"
+                                >
+                                    <Input
+                                        size='large'
+                                        placeholder="example@gmail.com" />
+                                </Form.Item>
                             </Col>
                         </Row>
-
                     </div>
+                    <Flex justify='end'>
+                        <Button
+                            size="large"
+                            type="primary"
+                            className={styles.btn}
+                        >                        
+                        Şikayət yarat
+                        </Button>
+                    </Flex>
                 </Form>
             </div>
         </>
