@@ -1,17 +1,17 @@
+import logo from '@/shared/media/imgs/logo-title.png';
 import {
+  LeftOutlined,
   PlusOutlined,
   QuestionCircleOutlined,
-  UnorderedListOutlined,
-  LeftOutlined,
-  RightOutlined
+  RightOutlined,
+  UnorderedListOutlined
 } from '@ant-design/icons';
-import { Button, Layout, Menu, Image, Flex } from 'antd';
+import { Button, Flex, Image, Layout, Menu } from 'antd';
 import React, { useState } from 'react';
-import logo from '@/shared/media/imgs/logo-title.png';
-import styles from './SideMenu.module.scss';
 import { Link, useLocation } from 'react-router-dom';
-const { Sider } = Layout;
 import CustomModal from '../../components/Modal';
+import styles from './SideMenu.module.scss';
+const { Sider } = Layout;
 
 export default function SideMenu() {
   const [collapsed, setCollapsed] = useState(false);
@@ -58,13 +58,13 @@ export default function SideMenu() {
             key: '3',
             icon: <QuestionCircleOutlined />,
             label: 'İstehlakçı təcrübəsi sorğusu',
-            className:styles.link,
-            onClick:showModal
+            className: styles.link,
+            onClick: showModal
           },
         ]}
       />
 
-      <CustomModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>
+      <CustomModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </Sider>
   );
 }

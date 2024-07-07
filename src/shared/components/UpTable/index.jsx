@@ -1,3 +1,5 @@
+import CustomButton from '@/shared/components/Button'
+import fileUrl from '@/shared/media/docs/E-Şikayət - Abunəçi Təlimatı.pdf'
 import {
     FilterOutlined,
     InfoCircleOutlined,
@@ -5,12 +7,10 @@ import {
     SearchOutlined
 } from '@ant-design/icons'
 import { Flex, Input, Space } from 'antd'
+import { saveAs } from 'file-saver'
 import React from 'react'
-import CustomButton from '@/shared/components/Button'
-import styles from './UpTable.module.scss'
-import { saveAs } from 'file-saver';
-import fileUrl from '../../media/file/E-Şikayət - Abunəçi Təlimatı.pdf';
 import { Link } from 'react-router-dom'
+import styles from './UpTable.module.scss'
 
 export default function UpTable() {
     const downloadPDF = async () => {

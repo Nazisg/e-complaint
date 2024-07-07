@@ -2,7 +2,6 @@ import { PlusOutlined } from '@ant-design/icons';
 import { Button, Col, Flex, Form, Input, InputNumber, Row, Select, Typography, Upload } from 'antd';
 import React from 'react';
 import styles from './CreateComplaint.module.scss';
-import CustomButton from '../../shared/components/Button';
 
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -310,8 +309,8 @@ export default function CreateComplaint() {
                             size="large"
                             type="primary"
                             className={styles.btn}
-                        >                        
-                        Şikayət yarat
+                        >
+                            Şikayət yarat
                         </Button>
                     </Flex>
                 </Form>

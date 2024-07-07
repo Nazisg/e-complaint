@@ -1,10 +1,10 @@
+import logo from '@/shared/media/imgs/logo-title.png';
 import {
   UserOutlined
 } from '@ant-design/icons';
 import { Avatar, Flex, Image, Layout, Typography } from 'antd';
 import React from 'react';
-import styles from './Header.module.scss'
-import logo from '@/shared/media/imgs/logo-title.png'
+import styles from './Header.module.scss';
 const { Header } = Layout;
 const { Title } = Typography;
 
