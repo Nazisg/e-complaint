@@ -1,17 +1,13 @@
-import { Modal } from 'antd'
-import React from 'react'
-import styles from './Modal.module.scss'
+import { Modal } from 'antd';
+import React from 'react';
 
-export default function CustomModal({ isModalOpen, setIsModalOpen }) {
-    const handleOk = () => {
-        window.open('https://docs.google.com/forms/d/e/1FAIpQLSc-1AMXNpayyZXs-iGtaHXnyiLsbTc9hwFpBwbrXVxvqwx8AA/viewform', '_blank');
-    };
+export default function CustomModal({ isModalOpen, setIsModalOpen, children, title, cancelButtonProps, handleOk }) {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
 
     return (
-        <Modal title="Sorğu" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-            <p>İnternet xidmətləri üzrə istehlakçı təcrübəsi sorğusu</p>
+        <Modal handleOk={handleOk} cancelButtonProps={cancelButtonProps} centered title={title} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            {children}
         </Modal>)
 }

@@ -4,9 +4,16 @@ import {
 } from '@ant-design/icons';
 import { Button, Flex, Table, Tag, Tooltip } from 'antd';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Table.module.scss';
 
 export default function CustomTable() {
+    const navigate = useNavigate();
+
+    const getDetail = (() => {
+        navigate('/detail');
+    })
+
     const columns = [
         {
             title: 'Şikayət nömrəsi',
@@ -76,7 +83,7 @@ export default function CustomTable() {
                         </Tooltip>
                     )}
                     <Tooltip title="ətraflı">
-                        <Button ghost type="primary" icon={<EyeOutlined />} />
+                        <Button ghost type="primary" onClick={getDetail} icon={<EyeOutlined />} />
                     </Tooltip>
                 </Flex>
             )

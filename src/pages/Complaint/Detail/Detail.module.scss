@@ -1,0 +1,27 @@
+.complaintInfo {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 1rem;
+  .personInfo {
+    border: 1px solid #d7d7d7;
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  .complaintSubject {
+    padding: 1.5rem 1.5rem 0 1.5rem;
+  }
+}
+.complaintStatus {
+  padding: 2rem 2rem 0 2rem;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background: #3c6cb4 !important;
+  padding: 0.5rem 5rem;
+  margin-bottom: 2rem;
+  font-size: 18px;
+}

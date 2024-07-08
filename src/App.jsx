@@ -1,4 +1,5 @@
 import Complaint from '@/pages/Complaint';
+import Detail from "@/pages/Complaint/Detail";
 import CreateComplaint from '@/pages/CreateComplaint';
 import Headerr from '@/shared/layout/Header';
 import SideMenu from '@/shared/layout/SideMenu';
@@ -19,12 +20,12 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Complaint />} />
               <Route path="/create-complaint" element={<CreateComplaint />} />
+              <Route path="/detail" element={<Detail />} />
             </Routes>
           </Content>
         </Layout>
       </Layout>
     </Router>
-
   );
 };
 export default App;

@@ -1,15 +1,29 @@
+import CustomModal from '@/shared/components/Modal';
+import CustomTitle from '@/shared/components/Title';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Col, Flex, Form, Input, InputNumber, Row, Select, Typography, Upload } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './CreateComplaint.module.scss';
 
-const { Title, Text } = Typography;
-const { TextArea } = Input;
-
 export default function CreateComplaint() {
+    const { Title, Text } = Typography;
+    const { TextArea } = Input;
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const navigate = useNavigate();
+
     const handleChange = (value) => {
         console.log(value);
     }
+
+    const handleOk = () => {
+        navigate('/');
+    };
+
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+
     const options = [
         {
             value: 'jack',
@@ -47,9 +61,7 @@ export default function CreateComplaint() {
     return (
         <>
             <div className={styles.createComplaint}>
-                <Flex justify='center' className={styles.header}>
-                    <Title level={2}>Şikayət məlumatları</Title>
-                </Flex>
+                <CustomTitle header={"ŞİKAYƏT MƏLUMATLARI"} />
                 <Form
                     name="layout-multiple-vertical"
                     layout="vertical"
@@ -309,11 +321,14 @@ export default function CreateComplaint() {
                             size="large"
                             type="primary"
                             className={styles.btn}
+                            onClick={showModal}
                         >
                             Şikayət yarat
                         </Button>
                     </Flex>
                 </Form>
+                <CustomModal handleOk={handleOk} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} cancelButtonProps={{ style: { display: "none" } }} onCancel={false} title={'YENİ ŞİKAYƏT YARADILDI'}>
+                </CustomModal>
             </div>
         </>
     )
