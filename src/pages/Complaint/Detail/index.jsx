@@ -1,8 +1,10 @@
+import CustomModal from '@/shared/components/Modal';
 import CustomTitle from '@/shared/components/Title';
-import { Button, Descriptions, Flex, Timeline, Typography } from 'antd';
-import React from 'react';
+import { Button, Col, Descriptions, Flex, Form, Row, Timeline, Typography } from 'antd';
+import TextArea from 'antd/es/input/TextArea';
+import React, { useState } from 'react';
 import styles from './Detail.module.scss';
-const { Text } = Typography;
+const { Text, Title } = Typography;
 
 const items = [
   {
@@ -70,8 +72,7 @@ const items = [
     label: 'E-poçt:',
     children: 'test.mail@icta.az',
   },
-];
-
+]
 const items2 = [
   {
     key: '1',
@@ -105,7 +106,14 @@ const itemsTimeline = [
   }
 ]
 
+
 export default function Detail() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <>
       <CustomTitle header={"ŞİKAYƏT MƏLUMATLARI"} />
@@ -119,22 +127,42 @@ export default function Detail() {
         </div>
       </div>
       <CustomTitle header={"ŞİKAYƏTƏ BAXILMANIN NƏTİCƏSİ"} />
+
       <div className={styles.complaintStatus}>
-        <Timeline
-          mode={'left'}
-          items={itemsTimeline}
-        />
+        <Row>
+          <Col span={6}>
+            <Timeline
+              mode={'left'}
+              items={itemsTimeline}
+            />
+          </Col>
+        </Row>
       </div>
+
       <Flex justify='end'>
         <Button
           size="large"
           type="primary"
           className={styles.btn}
-        // onClick={showModal}
+          onClick={showModal}
         >
           ŞİKAYƏTİ LƏĞV ET
         </Button>
       </Flex>
+      <>
+        <CustomModal className={styles.modal} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} >
+          <Title level={4}>ŞİKAYƏTİN LƏĞV EDİLMƏSİ</Title>
+          <Form>
+         <Col gap="middle">
+         <Text>Şikayəti ləğv etmək səbəbiniz nədir?</Text>
+            <TextArea className={styles.textarea} rows={4} onResize="false" />
+            <Flex  gap={"middle"} >
+              <Button className={styles.cancel} type='primary' ghost>İMTİNA ET</Button>
+              <Button className={styles.ok} type='primary'>ŞİKAYƏTİ LƏĞV ET</Button>
+            </Flex></Col>
+          </Form>
+        </CustomModal>
+      </>
     </>
   )
 }

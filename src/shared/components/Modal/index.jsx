@@ -1,13 +1,24 @@
 import { Modal } from 'antd';
 import React from 'react';
 
-export default function CustomModal({ isModalOpen, setIsModalOpen, children, title, cancelButtonProps, handleOk }) {
+export default function CustomModal({className, isModalOpen, setIsModalOpen, children, title, handleOk }) {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
 
     return (
-        <Modal handleOk={handleOk} cancelButtonProps={cancelButtonProps} centered title={title} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <Modal
+            title={title}
+            centered
+            open={isModalOpen}
+            // handleOk={handleOk}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            okButtonProps={{ style: { display: "none" } }}
+            cancelButtonProps={{ style: { display: "none" } }}
+            className={className}
+        >
             {children}
-        </Modal>)
+        </Modal>
+    )
 }

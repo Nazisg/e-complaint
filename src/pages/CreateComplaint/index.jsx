@@ -1,6 +1,7 @@
 import CustomModal from '@/shared/components/Modal';
 import CustomTitle from '@/shared/components/Title';
 import { PlusOutlined } from '@ant-design/icons';
+import InfoModalContent from '@/shared/components/InfoModalContent';
 import { Button, Col, Flex, Form, Input, InputNumber, Row, Select, Typography, Upload } from 'antd';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -16,8 +17,9 @@ export default function CreateComplaint() {
         console.log(value);
     }
 
-    const handleOk = () => {
+    const createComplaint = () => {
         navigate('/');
+        setIsModalOpen(false)
     };
 
     const showModal = () => {
@@ -327,7 +329,8 @@ export default function CreateComplaint() {
                         </Button>
                     </Flex>
                 </Form>
-                <CustomModal handleOk={handleOk} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} cancelButtonProps={{ style: { display: "none" } }} onCancel={false} title={'YENİ ŞİKAYƏT YARADILDI'}>
+                <CustomModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+                    <InfoModalContent onClick={createComplaint} title={"YENİ ŞİKAYƏT YARADILDI"} />
                 </CustomModal>
             </div>
         </>

@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+  .btn {
+    background: #3c6cb4 !important;
+    width: 70%;
+  }
+  .infoIcon {
+    color: #3c6cb4;
+    font-size: 2rem;
+  }
+}

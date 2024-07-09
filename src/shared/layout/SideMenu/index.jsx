@@ -51,7 +51,7 @@ export default function SideMenu() {
             key: '1',
             icon: <UnorderedListOutlined />,
             label: <Link to="/">Şikayətlər</Link>,
-            className: location.pathname === '/' || location.pathname === '/detail' ? styles.activeLink : styles.link,
+            className: location.pathname === '/' ? styles.activeLink : styles.link,
           },
           {
             key: '2',

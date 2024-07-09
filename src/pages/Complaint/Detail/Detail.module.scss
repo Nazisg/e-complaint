@@ -25,3 +25,22 @@
   margin-bottom: 2rem;
   font-size: 18px;
 }
+.modal {
+  .ant-modal-content {
+    padding: 0px !important;
+  }
+  .textarea {
+    resize: none;
+    height: 10rem;
+  }
+  button {
+    width: 100%;
+  }
+  .cancel {
+    color: #3c6cb4!important;
+    border-color: #3c6cb4!important;
+  }
+  .ok {
+    background-color: #3c6cb4!important;
+  }
+}
