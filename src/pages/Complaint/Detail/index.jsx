@@ -4,6 +4,7 @@ import { Button, Col, Descriptions, Flex, Form, Row, Timeline, Typography } from
 import TextArea from 'antd/es/input/TextArea';
 import React, { useState } from 'react';
 import styles from './Detail.module.scss';
+import ComplaintModal from '@/shared/components/ComplaintModal';
 const { Text, Title } = Typography;
 
 const items = [
@@ -113,7 +114,10 @@ export default function Detail() {
   const showModal = () => {
     setIsModalOpen(true);
   };
-
+  const createComplaint = () => {
+    navigate('/');
+    setIsModalOpen(false)
+};
   return (
     <>
       <CustomTitle header={"ŞİKAYƏT MƏLUMATLARI"} />
@@ -149,20 +153,10 @@ export default function Detail() {
           ŞİKAYƏTİ LƏĞV ET
         </Button>
       </Flex>
-      <>
-        <CustomModal className={styles.modal} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} >
-          <Title level={4}>ŞİKAYƏTİN LƏĞV EDİLMƏSİ</Title>
-          <Form>
-         <Col gap="middle">
-         <Text>Şikayəti ləğv etmək səbəbiniz nədir?</Text>
-            <TextArea className={styles.textarea} rows={4} onResize="false" />
-            <Flex  gap={"middle"} >
-              <Button className={styles.cancel} type='primary' ghost>İMTİNA ET</Button>
-              <Button className={styles.ok} type='primary'>ŞİKAYƏTİ LƏĞV ET</Button>
-            </Flex></Col>
-          </Form>
-        </CustomModal>
-      </>
+        <ComplaintModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />      
+        {/* <CustomModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+                    <InfoModalContent onClick={createComplaint} title={"YENİ ŞİKAYƏT YARADILDI"} />
+                </CustomModal> */}
     </>
   )
 }

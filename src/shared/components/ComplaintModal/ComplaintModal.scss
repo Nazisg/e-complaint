@@ -1,0 +1,39 @@
+.complaintmodal {
+  .ant-modal-content {
+    padding: 0px;
+    border-top-left-radius: 60px;
+  }
+  .modal-title {
+    padding: 0.7rem;
+    background-color: #3c6cb4;
+    color: #fff;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin: 0;
+  }
+  .modal-form {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    h5{
+        margin: 0;
+    }
+  }
+  .textarea {
+    resize: none;
+    height: 10rem;
+  }
+
+    button {
+      width: 100%;
+    }
+    .cancel {
+      color: #3c6cb4 !important;
+      border-color: #3c6cb4 !important;
+    }
+    .ok {
+      background-color: #3c6cb4 !important;
+    }
+}

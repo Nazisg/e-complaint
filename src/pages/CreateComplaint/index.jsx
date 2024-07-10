@@ -164,7 +164,7 @@ export default function CreateComplaint() {
                                         message: '',
                                     },
                                 ]}>
-                                <TextArea className={styles.textarea} rows={4} onResize="false" placeholder='Maksimum 1000 simvol' />
+                                <TextArea className={styles.textarea} rows={4} placeholder='Maksimum 1000 simvol' />
                             </Form.Item>
                         </div>
                         <Form.Item valuePropName="fileList" getValueFromEvent={normFile}>

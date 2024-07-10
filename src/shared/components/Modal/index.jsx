@@ -16,7 +16,6 @@ export default function CustomModal({className, isModalOpen, setIsModalOpen, chi
             onCancel={handleCancel}
             okButtonProps={{ style: { display: "none" } }}
             cancelButtonProps={{ style: { display: "none" } }}
-            className={className}
         >
             {children}
         </Modal>
