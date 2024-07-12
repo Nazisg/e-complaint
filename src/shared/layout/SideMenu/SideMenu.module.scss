@@ -19,3 +19,17 @@
   color: #3c6cb4 !important;
   background-color: #fff !important;
 }
+
+.modalContent{
+  margin-top: 1rem;
+  button{
+    width: 100%;
+  }
+  .cancel {
+    color: #3c6cb4 !important;
+    border-color: #3c6cb4 !important;
+  }
+  .ok {
+    background-color: #3c6cb4 !important;
+  }
+}

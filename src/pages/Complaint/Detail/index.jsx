@@ -5,6 +5,8 @@ import TextArea from 'antd/es/input/TextArea';
 import React, { useState } from 'react';
 import styles from './Detail.module.scss';
 import ComplaintModal from '@/shared/components/ComplaintModal';
+import InfoModalContent from '../../../shared/components/InfoModalContent';
+import { useNavigate } from 'react-router-dom';
 const { Text, Title } = Typography;
 
 const items = [
@@ -110,14 +112,18 @@ const itemsTimeline = [
 
 export default function Detail() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
 
   const showModal = () => {
     setIsModalOpen(true);
   };
-  const createComplaint = () => {
-    navigate('/');
-    setIsModalOpen(false)
-};
+  const navigate = useNavigate();
+
+    const handleOk = () => {
+        navigate('/');
+        setIsInfoModalOpen(false)
+    };
+    
   return (
     <>
       <CustomTitle header={"ŞİKAYƏT MƏLUMATLARI"} />
@@ -153,10 +159,10 @@ export default function Detail() {
           ŞİKAYƏTİ LƏĞV ET
         </Button>
       </Flex>
-        <ComplaintModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />      
-        {/* <CustomModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
-                    <InfoModalContent onClick={createComplaint} title={"YENİ ŞİKAYƏT YARADILDI"} />
-                </CustomModal> */}
+      <ComplaintModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      <CustomModal isInfoModalOpen={isInfoModalOpen} setIsInfoModalOpen={setIsInfoModalOpen}>
+        <InfoModalContent onClick={handleOk} title={"YENİ ŞİKAYƏT YARADILDI"} />
+      </CustomModal>
     </>
   )
 }

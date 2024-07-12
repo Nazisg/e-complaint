@@ -1,4 +1,4 @@
-import logo from '@/shared/media/imgs/logo-title.png';
+// import logo from '@/shared/media/imgs/logo-title.png';
 import {
   LeftOutlined,
   PlusOutlined,
@@ -6,7 +6,7 @@ import {
   RightOutlined,
   UnorderedListOutlined
 } from '@ant-design/icons';
-import { Button, Flex, Image, Layout, Menu, Typography } from 'antd';
+import { Button, Flex, Layout, Menu, Typography } from 'antd';
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import CustomModal from '../../components/Modal';
@@ -69,8 +69,12 @@ export default function SideMenu() {
         ]}
       />
 
-      <CustomModal handleOk={handleOk} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} title={"Sorğu"} >
+      <CustomModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} title={"Sorğu"} >
         <p>İnternet xidmətləri üzrə istehlakçı təcrübəsi sorğusu</p>
+        <Flex gap={"middle"} className={styles.modalContent}>
+          <Button ghost type='primary' onClick={() => { setIsModalOpen(false) }} className={styles.cancel}>İmtina et</Button>
+          <Button type='primary' onClick={handleOk} className={styles.ok}>Davam et</Button>
+        </Flex>
       </CustomModal>
     </Sider>
   );
